@@ -1,3 +1,16 @@
+@import url(./header.css);
+
+:root {
+  --Cor-verde-principal: #27ae60;
+  --Verde-escuro: #0e6251;
+  --Cor-texto: #4d4d4d;
+  --Cinza-claro: #7a7a7a;
+  --Fonte-principal: "Poppins", sans-serif;
+}
+body {
+  font-family: var(--Fonte-principal);
+}
+
 .icone_viva-bem {
   width: 20%;
 }
