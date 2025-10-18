@@ -1,14 +1,15 @@
 @import url(./header.css);
 
 :root {
-  --Cor-verde-principal: #27ae60;
-  --Verde-escuro: #0e6251;
-  --Cor-texto: #4d4d4d;
-  --Cinza-claro: #7a7a7a;
+  --Cor-fundo-formulario: ##f3f4f6;
+  --Fundo-da-pagina: linear-gradient(to bottom right, #ecfdf5, #ffffff, #f0fdfa);
+  --Cor-campo-formulario: #f9fafb;
+  --Borda-formulario: #e5e7eb;
   --Fonte-principal: "Poppins", sans-serif;
 }
 body {
   font-family: var(--Fonte-principal);
+  background: var(--Fundo-da-pagina);
 }
 
 .icone_viva-bem {

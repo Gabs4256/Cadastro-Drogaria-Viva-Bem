@@ -1,0 +1,52 @@
+.cabeçalho{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+.campo{
+    display: flex;
+    justify-content: center;
+}
+.campo input {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--Cor-fundo-formulario);
+  border: 1px solid var(--Borda-formulario);
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.campo ::placeholder{
+    text-align: center;
+}
+.campo label{
+    display: none;
+}
+.corpo_pagina_tudo{
+    padding: 1em;
+    
+}
+.corpo_da_pagina {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--Cor-fundo-formulario);
+  padding: 34px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.corpo_da_pagina form {
+  display: grid;
+  gap: 16px;
+}
+
+
+
+
+
+.logo_usuario{
+    width: 8%;
+}
