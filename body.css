@@ -1,0 +1,172 @@
+.cabeçalho {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.campo {
+  display: flex;
+  justify-content: center;
+}
+.campo input {
+  width: 100%;
+  padding: 1em;
+  background-color: var(--Cor-fundo-formulario);
+  border: 1px solid var(--Borda-formulario);
+  border-radius: 0.75em;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  outline: none;
+}
+/* Efeito focus */
+.campo input:focus {
+  outline: none;
+  border-color: #00b894;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+/* Efeito hover */
+.campo input:hover {
+  border-color: #00b894;
+}
+.campo input[type="date"]:invalid {
+  color: #999;
+  text-align: center;
+}
+input{
+  text-align: center;
+}
+.campo ::placeholder {
+  text-align: center;
+}
+.campo label {
+  display: none;
+}
+.corpo_pagina_tudo {
+  padding: 1em;
+}
+.corpo_da_pagina {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 1, 25em 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--Cor-fundo-formulario);
+  padding: 34px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.corpo_da_pagina form {
+  display: grid;
+  gap: 1em;
+}
+
+/* Campos foto e botao salvar e resetar */
+
+/* Container da foto */
+.foto {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label customizada para o input file */
+.foto label {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: var(--Background-color-botao);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid var(--Background-color-botao);
+}
+
+.foto label:hover {
+  background-color: var(--Hover-botao);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0.75em rgba(0, 184, 148, 0.3);
+}
+
+/* Esconder o input file padrão */
+.foto input[type="file"] {
+  display: none;
+}
+
+/* Container dos botões */
+.Botoes-acao {
+  display: flex;
+  justify-content: space-between;
+}
+button[type="submit"],
+button[type="reset"] {
+  padding: 0.75em 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Botão Salvar */
+button[type="submit"] {
+  background-color: var(--Background-color-botao);
+  color: white;
+  border-color: var(--Background-color-botao);
+}
+
+button[type="submit"]:hover {
+  background-color: var(---Hover-botao);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0.75em rgba(0, 184, 148, 0.3);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Botão Limpar */
+button[type="reset"] {
+  background-color: transparent;
+  color: var(--Background-color-botao);
+  border-color: var(--Background-color-botao);
+}
+
+button[type="reset"]:hover {
+  background-color: var(--Background-color-botao);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0.75em rgba(0, 184, 148, 0.2);
+}
+
+button[type="reset"]:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25em 1.875em;
+}
+
+.rodape__links {
+  display: flex;
+  gap: 3.75em;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_usuario {
+  width: 2.5em;
+  height: 2.5em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo_usuario:hover {
+  transform: scale(1.1); /* Efeito de zoom no hover */
+}
