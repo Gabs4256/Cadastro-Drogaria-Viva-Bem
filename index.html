@@ -20,7 +20,6 @@
     />
   </head>
   <body>
-    <!--MENU PARA NAVEGAÇÃO ENTRE AS PAGINAS-->
     <header class="cabeçalho">
       <img
         class="Imagem_logo_farmacia"
@@ -30,6 +29,24 @@
     </header>
     <div class="corpo_pagina_tudo">
       <section class="corpo_da_pagina">
+        <h2 class="Subtitulo-form">Cadastro de Usuário</h2>
+        <div class="foto-container">
+          <div
+            class="foto-preview"
+            onclick="document.getElementById('fotoInput').click()"
+          >
+            <span id="fotoPlaceholder">📷</span>
+            <img id="fotoPreview" style="display: none" alt="Preview" />
+          </div>
+          <input
+            type="file"
+            id="fotoInput"
+            name="foto"
+            class="foto-input"
+            accept="image/*"
+          />
+          <label for="fotoInput" class="foto-label">📸 Adicionar Foto</label>
+        </div>
         <form action="" method="POST" enctype="multipart/form-data">
           <!--DADOS PESSOAIS-->
           <div class="campo">
@@ -133,10 +150,6 @@
               readonly
             />
           </div>
-          <div class="foto">
-            <label for="foto">Adicionar Foto</label>
-            <input type="file" id="foto" name="foto" placeholder="Foto" />
-          </div>
           <div class="Botoes-acao">
             <button type="submit">Salvar</button>
             <button type="reset">Limpar</button>
@@ -146,14 +159,14 @@
     </div>
     <footer>
       <div class="rodape__links">
-        <a href="#">
+        <a href="./index.html">
           <img
             class="logo_usuario"
             src="./assets/usuario.png"
             alt="Imagem cadastro"
           />
         </a>
-        <a href="#">
+        <a href="./clientes.html">
           <img
             class="logo_usuario"
             src="./assets/cadastro.png"

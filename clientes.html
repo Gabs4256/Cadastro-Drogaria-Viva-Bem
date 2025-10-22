@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes - Viva Bem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="./Favicon-logo-farmacia-viva-bem.png"
+      type="image/png+xml"
+    />
+</head>
+<body>
+    <div class="container">
+        <header class="cabeçalho">
+            <img
+                class="Imagem_logo_farmacia"
+                src="./assets/Logo-Viva-Bem-Farmacia-removebg.png"
+                alt="Logo-Viva-Bem-Farmacia"
+            />
+            <div class="search__name">
+                <input
+                    type="text"
+                    id="searchinput"
+                    placeholder="🔍 Buscar por nome ou CPF..."
+                    class="search-input"
+                />
+            </div>
+    </div>
+            <div class="contador">
+                <span id="totalUsuarios">0</span> usuário(s) cadastrado(s)
+            </div>
+        </header>
+        <!-- Container dos Cards -->
+        <div id="cardsContainer" class="cards-container">
+            <!-- Cards serão inseridos aqui via JavaScript -->
+        </div>
+        <div id="mensagemVazia" class="mensagem-vazia" style="display: none;">
+            <p>📋 Nenhum usuário cadastrado ainda.</p>
+            <a href="./index.html" class="btn-voltar">
+                ← Cadastrar Primeiro Usuário
+            </a>
+        </div>
+        <div id="mensagemBuscaVazia" class="mensagem-vazia" style="display: none;">
+            <p>🔍 Nenhum usuário encontrado com esses critérios.</p>
+        </div>
+        <a href="./index.html" class="btn-voltar">
+            ← Voltar ao Cadastro
+        </a>
+
+    <script src="./usuarios-script.js"></script>
+</body>
+</html>

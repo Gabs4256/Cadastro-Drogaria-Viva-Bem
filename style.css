@@ -1,11 +1,17 @@
 @import url(./body.css);
+@import url(./clientes.css);
 
 :root {
-  --Cor-fundo-formulario: ##f3f4f6;
-  --Fundo-da-pagina: linear-gradient(to bottom right, #ecfdf5, #ffffff, #f0fdfa);
+  --Cor-fundo-formulario: #f3f4f6;
+  --Fundo-da-pagina: linear-gradient(
+    to bottom right,
+    #ecfdf5,
+    #ffffff,
+    #f0fdfa
+  );
   --Cor-campo-formulario: #f9fafb;
   --Borda-formulario: #e5e7eb;
-  --Background-color-botao: #00B894;
+  --Background-color-botao: #00b894;
   --Hover-botao: #00a383;
   --Fonte-principal: "Poppins", sans-serif;
 }

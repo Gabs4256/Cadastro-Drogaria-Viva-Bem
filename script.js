@@ -44,7 +44,7 @@ function validarIdade(dataNascimento) {
 
 // ===== API VIACEP =====
 document.getElementById('cep').addEventListener('blur', function() {
-  const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+  const cep = this.value.replace(/\D/g, ''); 
   
   if (cep.length === 8) {
     // Faz a requisição para o ViaCEP

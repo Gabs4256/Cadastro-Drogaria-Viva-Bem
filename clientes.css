@@ -1,0 +1,95 @@
+/* Centralizar todo o conteúdo verticalmente na página */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Centralizar o cabeçalho */
+.cabeçalho {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Logo centralizado */
+.Imagem_logo_farmacia {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Barra de busca centralizada */
+.search__name {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  background: white;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Contador */
+.contador {
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Botão voltar na parte inferior */
+.btn-voltar {
+  margin-top: auto;
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-voltar:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Container dos cards */
+.cards-container {
+  width: 100%;
+  margin-top: 20px;
+}
