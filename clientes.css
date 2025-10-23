@@ -24,7 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
 }
 
 /* Logo centralizado */
@@ -39,18 +38,17 @@ body {
 .search__name {
   width: 100%;
   max-width: 400px;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
 }
 
 .search-input {
-  width: 100%;
-  padding: 14px 20px;
+  width: 60%;
+  padding: 10px 10px;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
   background: white;
@@ -59,7 +57,7 @@ body {
 
 .search-input:focus {
   outline: none;
-  border-color: #10b981;
+  border-color: var(--Hover-botao);
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
@@ -67,13 +65,14 @@ body {
 .contador {
   color: #6b7280;
   text-align: center;
+  margin-top: 1.2em;
 }
 
 /* Botão voltar na parte inferior */
 .btn-voltar {
   margin-top: auto;
   padding: 12px 24px;
-  background: #3b82f6;
+  background: var(--Background-color-botao);
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -83,7 +82,7 @@ body {
 }
 
 .btn-voltar:hover {
-  background: #2563eb;
+  background: var(--Hover-botao);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }

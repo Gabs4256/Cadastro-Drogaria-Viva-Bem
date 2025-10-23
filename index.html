@@ -31,22 +31,21 @@
       <section class="corpo_da_pagina">
         <h2 class="Subtitulo-form">Cadastro de Usuário</h2>
         <div class="foto-container">
-          <div
-            class="foto-preview"
-            onclick="document.getElementById('fotoInput').click()"
-          >
+          <div class="foto-preview" id="fotoPreviewContainer">
             <span id="fotoPlaceholder">📷</span>
             <img id="fotoPreview" style="display: none" alt="Preview" />
           </div>
           <input
             type="file"
-            id="fotoInput"
+            id="foto"
             name="foto"
             class="foto-input"
             accept="image/*"
+            style="display: none;"
           />
-          <label for="fotoInput" class="foto-label">📸 Adicionar Foto</label>
+          <label for="foto" class="foto-label">📸 Adicionar Foto</label>
         </div>
+
         <form action="" method="POST" enctype="multipart/form-data">
           <!--DADOS PESSOAIS-->
           <div class="campo">
@@ -162,7 +161,7 @@
         <a href="./index.html">
           <img
             class="logo_usuario"
-            src="./assets/usuario.png"
+            src="./assets/adicionar-usuario.png"
             alt="Imagem cadastro"
           />
         </a>

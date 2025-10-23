@@ -1,5 +1,6 @@
 @import url(./body.css);
 @import url(./clientes.css);
+@import url(./card.css);
 
 :root {
   --Cor-fundo-formulario: #f3f4f6;
