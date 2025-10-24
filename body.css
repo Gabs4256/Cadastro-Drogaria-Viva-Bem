@@ -17,6 +17,8 @@
 }
 
 .foto-preview {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin: 0 auto 15px;
   border: 4px solid var(--Background-color-botao);
@@ -27,8 +29,8 @@
   font-size: 48px;
 }
 .foto-preview img {
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -209,11 +211,13 @@ footer {
     margin: 0;
     margin-bottom: 1em;
   }
-
+  
+  /* Foto maior no desktop */
   .foto-preview {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
+
   /* Botões ocupam as 2 primeiras colunas */
   .Botoes-acao {
     grid-column: 2/ 2;
