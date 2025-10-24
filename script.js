@@ -24,7 +24,43 @@ document.getElementById('foto').addEventListener('change', function(e) {
   }
 });
 
-// ===== MÁSCARA DE CPF =====
+// ===== VALIDAÇÃO DE CPF =====
+function validarCPF(cpf) {
+  cpf = cpf.replace(/\D/g, '');
+  
+  // Verifica se tem 11 dígitos
+  if (cpf.length !== 11) return false;
+  
+  // Verifica se todos os dígitos são iguais (ex: 111.111.111-11)
+  if (/^(\d)\1{10}$/.test(cpf)) return false;
+  
+  // Validação dos dígitos verificadores
+  let soma = 0;
+  let resto;
+  
+  // Validação do primeiro dígito
+  for (let i = 1; i <= 9; i++) {
+    soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  }
+  
+  resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+  if (resto !== parseInt(cpf.substring(9, 10))) return false;
+  
+  // Validação do segundo dígito
+  soma = 0;
+  for (let i = 1; i <= 10; i++) {
+    soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  }
+  
+  resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+  if (resto !== parseInt(cpf.substring(10, 11))) return false;
+  
+  return true;
+}
+
+// ===== MÁSCARA DE CPF (Compatível com Mobile) =====
 function mascaraCPF(input) {
   let valor = input.value.replace(/\D/g, ''); // Remove tudo que não é dígito
   
@@ -37,37 +73,164 @@ function mascaraCPF(input) {
   input.value = valor;
 }
 
-// Aplicar máscara ao digitar no CPF
-const documentInput = document.getElementById('document');
-if (documentInput) {
-  documentInput.addEventListener('input', function() {
-    mascaraCPF(this);
-  });
+// ===== FEEDBACK VISUAL DE VALIDAÇÃO DO CPF =====
+function verificarCPF(input) {
+  const cpf = input.value.replace(/\D/g, '');
+  
+  // Remove classes anteriores
+  input.classList.remove('campo-valido', 'campo-invalido');
+  
+  // Remove mensagem anterior se existir
+  let mensagemExistente = input.parentElement.querySelector('.mensagem-validacao');
+  if (mensagemExistente) {
+    mensagemExistente.remove();
+  }
+  
+  if (cpf.length === 11) {
+    if (validarCPF(cpf)) {
+      input.classList.add('campo-valido');
+      const mensagem = document.createElement('small');
+      mensagem.className = 'mensagem-validacao valido';
+      mensagem.style.color = '#10b981';
+      mensagem.style.fontSize = '0.875rem';
+      mensagem.style.marginTop = '0.25rem';
+      mensagem.style.display = 'block';
+      input.parentElement.appendChild(mensagem);
+    } else {
+      input.classList.add('campo-invalido');
+      const mensagem = document.createElement('small');
+      mensagem.className = 'mensagem-validacao invalido';
+      mensagem.style.color = '#ef4444';
+      mensagem.style.fontSize = '0.875rem';
+      mensagem.style.marginTop = '0.25rem';
+      mensagem.style.display = 'block';
+      input.parentElement.appendChild(mensagem);
+    }
+  }
 }
 
-// ===== MÁSCARA DE RG =====
+// Aplicar máscara e validação ao CPF
+const documentInput = document.getElementById('document');
+if (documentInput) {
+  // Múltiplos eventos para garantir funcionamento no mobile
+  ['input', 'keyup', 'change'].forEach(evento => {
+    documentInput.addEventListener(evento, function() {
+      mascaraCPF(this);
+    });
+  });
+  
+  // Validação ao sair do campo
+  documentInput.addEventListener('blur', function() {
+    verificarCPF(this);
+  });
+  
+  // Adiciona estilos CSS para feedback visual
+  const style = document.createElement('style');
+  style.textContent = `
+    .campo-valido {
+      border-color: #10b981 !important;
+      background-color: #f0fdf4 !important;
+    }
+    .campo-invalido {
+      border-color: #ef4444 !important;
+      background-color: #fef2f2 !important;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// ===== VALIDAÇÃO DE RG =====
+function validarRG(rg) {
+  rg = rg.replace(/\D/g, '');
+  
+  // Verifica se tem entre 7 e 9 dígitos (padrões aceitos no Brasil)
+  if (rg.length < 7 || rg.length > 9) return false;
+  
+  // Verifica se não são todos os dígitos iguais
+  if (/^(\d)\1+$/.test(rg)) return false;
+  
+  return true;
+}
+
+// ===== MÁSCARA DE RG (Compatível com Mobile) =====
+function mascaraRG(input) {
+  let valor = input.value.replace(/\D/g, '');
+  
+  if (valor.length <= 9) {
+    // Formato: 00.000.000-0
+    valor = valor.replace(/(\d{2})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d{1})$/, '$1-$2');
+  }
+  
+  input.value = valor;
+}
+
+// ===== FEEDBACK VISUAL DE VALIDAÇÃO DO RG =====
+function verificarRG(input) {
+  const rg = input.value.replace(/\D/g, '');
+  
+  // Remove classes anteriores
+  input.classList.remove('campo-valido', 'campo-invalido');
+  
+  // Remove mensagem anterior se existir
+  let mensagemExistente = input.parentElement.querySelector('.mensagem-validacao');
+  if (mensagemExistente) {
+    mensagemExistente.remove();
+  }
+  
+  if (rg.length >= 7) {
+    if (validarRG(rg)) {
+      input.classList.add('campo-valido');
+      const mensagem = document.createElement('small');
+      mensagem.className = 'mensagem-validacao valido';
+      mensagem.style.color = '#10b981';
+      mensagem.style.fontSize = '0.875rem';
+      mensagem.style.marginTop = '0.25rem';
+      mensagem.style.display = 'block';
+      input.parentElement.appendChild(mensagem);
+    } else {
+      input.classList.add('campo-invalido');
+      const mensagem = document.createElement('small');
+      mensagem.className = 'mensagem-validacao invalido';
+      mensagem.style.color = '#ef4444';
+      mensagem.style.fontSize = '0.875rem';
+      mensagem.style.marginTop = '0.25rem';
+      mensagem.style.display = 'block';
+      input.parentElement.appendChild(mensagem);
+    }
+  }
+}
+
+// Aplicar máscara e validação ao RG
 const rgInput = document.getElementById('document_other');
 if (rgInput) {
-  rgInput.addEventListener('input', function() {
-    let valor = this.value.replace(/\D/g, '');
-    if (valor.length <= 9) {
-      valor = valor.replace(/(\d{2})(\d{3})(\d{3})(\d{1})$/, '$1.$2.$3-$4');
-    }
-    this.value = valor;
+  // Múltiplos eventos para garantir funcionamento no mobile
+  ['input', 'keyup', 'change'].forEach(evento => {
+    rgInput.addEventListener(evento, function() {
+      mascaraRG(this);
+    });
+  });
+  
+  // Validação ao sair do campo
+  rgInput.addEventListener('blur', function() {
+    verificarRG(this);
   });
 }
 
 // ===== MÁSCARA DE CEP =====
 const cepInput = document.getElementById('cep');
 if (cepInput) {
-  cepInput.addEventListener('input', function() {
-    let valor = this.value.replace(/\D/g, '');
-    
-    if (valor.length <= 8) {
-      valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
-    }
-    
-    this.value = valor;
+  ['input', 'keyup', 'change'].forEach(evento => {
+    cepInput.addEventListener(evento, function() {
+      let valor = this.value.replace(/\D/g, '');
+      
+      if (valor.length <= 8) {
+        valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
+      }
+      
+      this.value = valor;
+    });
   });
 }
 
@@ -174,15 +337,24 @@ if (formulario) {
     // Validação de idade (18+)
     const dataNascimento = document.getElementById('age').value;
     if (!validarIdade(dataNascimento)) {
-      alert('❌ Não são permitidos cadastros de menores de 18 anos.');
+      alert('Não são permitidos cadastros de menores de 18 anos.');
       return;
     }
     
-    // Validação de CPF (formato básico - 11 dígitos)
+    // Validação de CPF completa
     const cpf = document.getElementById('document').value;
-    if (cpf.replace(/\D/g, '').length !== 11) {
-      alert('❌ CPF inválido! Digite os 11 dígitos.');
+    if (!validarCPF(cpf)) {
+      alert('CPF inválido! Verifique os dígitos digitados.');
       return;
+    }
+    
+    // Validação de RG (se preenchido)
+    const rgInput = document.getElementById('document_other');
+    if (rgInput && rgInput.value.trim()) {
+      if (!validarRG(rgInput.value)) {
+        alert('RG inválido! Verifique os dígitos digitados.');
+        return;
+      }
     }
     
     // ===== SALVAR NO LOCALSTORAGE =====
@@ -230,6 +402,7 @@ if (formulario) {
     } else {
       // Modo novo cadastro - adiciona novo usuário
       usuarios.push(usuario);
+      alert('✅ Cadastro realizado com sucesso!');
     }
     
     // Salvar no localStorage
@@ -263,6 +436,13 @@ if (botaoReset) {
       if (fotoInput) {
         fotoInput.value = '';
       }
+      
+      // Remove mensagens de validação
+      document.querySelectorAll('.mensagem-validacao').forEach(msg => msg.remove());
+      
+      // Remove classes de validação
+      if (documentInput) documentInput.classList.remove('campo-valido', 'campo-invalido');
+      if (rgInput) rgInput.classList.remove('campo-valido', 'campo-invalido');
     }, 0);
   });
 }
@@ -290,8 +470,18 @@ window.addEventListener('DOMContentLoaded', function() {
       
       if (userName) userName.value = usuario.nome;
       if (age) age.value = usuario.dataNascimento;
-      if (documentCPF) documentCPF.value = usuario.cpf;
-      if (documentRG && usuario.rg) documentRG.value = usuario.rg;
+      if (documentCPF) {
+        documentCPF.value = usuario.cpf;
+        // Aplica máscara aos dados carregados
+        mascaraCPF(documentCPF);
+        verificarCPF(documentCPF);
+      }
+      if (documentRG && usuario.rg) {
+        documentRG.value = usuario.rg;
+        // Aplica máscara aos dados carregados
+        mascaraRG(documentRG);
+        verificarRG(documentRG);
+      }
       if (email) email.value = usuario.email;
       if (rua) rua.value = usuario.rua;
       if (numero) numero.value = usuario.numero;

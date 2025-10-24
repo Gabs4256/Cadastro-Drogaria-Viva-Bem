@@ -15,9 +15,8 @@
   text-align: center;
   margin-bottom: 1em;
 }
+
 .foto-preview {
-  width: 90px;
-  height: 90px;
   border-radius: 50%;
   margin: 0 auto 15px;
   border: 4px solid var(--Background-color-botao);
@@ -26,15 +25,10 @@
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  cursor: pointer;
 }
-.foto-preview:hover {
-  background-color: var(--Background-color-botao);
-}
-
 .foto-preview img {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
   object-fit: cover;
 }
 
