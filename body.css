@@ -3,6 +3,9 @@
   justify-content: center;
   margin-top: 2em;
 }
+.navegacao_paginas {
+  display: none;
+}
 .Subtitulo-form {
   display: flex;
   justify-content: center;
@@ -25,7 +28,7 @@
   font-size: 48px;
   cursor: pointer;
 }
-.foto-preview:hover{
+.foto-preview:hover {
   background-color: var(--Background-color-botao);
 }
 
@@ -116,7 +119,7 @@ input {
 button[type="submit"],
 button[type="reset"] {
   margin-top: 1em;
-  margin-right:0.5em;
+  margin-right: 0.5em;
   padding: 0.75em 35px;
   border-radius: 8px;
   font-weight: 600;
@@ -136,8 +139,8 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: var(---Hover-botao);
   box-shadow: 0 4px 0.75em rgba(0, 184, 148, 0.3);
+  color: var(--Background-color-botao);
 }
-
 
 /* Botão Limpar */
 button[type="reset"] {
@@ -149,9 +152,8 @@ button[type="reset"] {
 button[type="reset"]:hover {
   background-color: var(--Background-color-botao);
   color: white;
-  box-shadow: 0 4px 0.75em rgba(0, 184, 148, 0.2);
 }
-/* Footer */
+
 
 footer {
   display: flex;
@@ -176,4 +178,57 @@ footer {
 
 .logo_usuario:hover {
   transform: scale(1.1); /* Efeito de zoom no hover */
+}
+
+@media screen and (min-width: 720px) {
+  .navegacao_paginas {
+    display: block;
+  }
+  .navegacao_paginas {
+    display: flex;
+    gap: 7em;
+    margin-bottom: 1em;
+  }
+  .navegacao_paginas-busca {
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: var(--Background-color-botao);
+    color: var(--Cor-campo-formulario);
+    padding: 0.75em;
+  }
+
+  /* Layout principal com grid */
+  .corpo_da_pagina {
+    max-width: 900px;
+  }
+
+  .corpo_da_pagina{
+    align-items: start;
+  }
+
+  /* Foto fixa à direita */
+  .foto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  .foto-preview {
+    width: 150px;
+    height: 150px;
+  }
+  /* Botões ocupam as 2 primeiras colunas */
+  .Botoes-acao {
+    grid-column: 2/ 2;
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+
+  .rodape__links {
+    display: none;
+  }
 }

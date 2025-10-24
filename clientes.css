@@ -3,20 +3,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  align-items: center; /* mantém o header centralizado */
   box-sizing: border-box;
 }
 
 .container {
   width: 100%;
-  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
+
 
 /* Centralizar o cabeçalho */
 .cabeçalho {
@@ -39,9 +37,9 @@ body {
   width: 100%;
   max-width: 400px;
   display: flex;
-  flex-direction: column;
-  align-items: end;
+  justify-content: center;
 }
+
 
 .search-input {
   width: 60%;
@@ -92,3 +90,4 @@ body {
   width: 100%;
   margin-top: 20px;
 }
+
