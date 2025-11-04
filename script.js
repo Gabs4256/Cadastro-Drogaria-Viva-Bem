@@ -520,12 +520,15 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
   //API com o site flatpickr para mudar o layout da data
-    flatpickr("#age", {
-    dateFormat: "Y-m-d",      // formato brasileiro
-    locale: "pt",             // idioma português
-    maxDate: "today",         // impede escolher datas futuras
-    altInput: true,           // mostra a data formatada bonitinha
-    altFormat: "d/m/Y",       // formato alternativo pro input visível
-  });
+flatpickr("#age", {
+  dateFormat: "Y-m-d",      // formato ISO para o JavaScript entender
+  locale: "pt",             // idioma português
+  maxDate: "today",         // impede escolher datas futuras
+  altInput: true,           // mostra a data formatada
+  altFormat: "d/m/Y",       // formato brasileiro pro usuário
+  disableMobile: true,      // ⭐ FORÇA usar o calendário do Flatpickr no mobile
+  static: false,
+  allowInput: true,         // permite digitar também
+});
 
 });

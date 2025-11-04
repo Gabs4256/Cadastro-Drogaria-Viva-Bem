@@ -83,26 +83,36 @@
   border-color: #00b894;
 }
 .campo input[type="date"],
-.campo input[type="text"].flatpickr-input {
-  color: #333;
+.campo input.flatpickr-input,
+.campo input.flatpickr-mobile {
+  color: #333 !important;
   text-align: center;
   width: 100%;
   padding: 10px 14px;
-  border: 2px solid var(--Background-color-botao);
+  border: 2px solid var(--Background-color-botao) !important;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #fff !important;
   font-size: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
-.campo input[type="date"]::-webkit-calendar-picker-indicator,
-.campo input.flatpickr-input::-webkit-calendar-picker-indicator {
-  background-color: var(--Background-color-botao);
-  border-radius: 50%;
-  padding: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.campo input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
 }
+
+.campo input.flatpickr-input::placeholder {
+  color: #999;
+  text-align: center;
+}
+
+.campo input.flatpickr-input:focus {
+  outline: none;
+  border-color: #00b894 !important;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
 input {
   text-align: center;
 }
@@ -234,7 +244,6 @@ footer {
     margin-bottom: 1em;
   }
 
-
   /* Botões ocupam as 2 primeiras colunas */
   .Botoes-acao {
     grid-column: 2/ 2;
@@ -246,6 +255,15 @@ footer {
   .rodape__links {
     display: none;
   }
-  
-}
+  .flatpickr-calendar {
+    font-size: 16px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
 
+  .flatpickr-day {
+    height: 40px !important;
+    line-height: 40px !important;
+    max-width: 40px !important;
+  }
+}
