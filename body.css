@@ -82,27 +82,27 @@
 .campo input:hover {
   border-color: #00b894;
 }
-.campo input[type="date"] {
-  color: #999;
+.campo input[type="date"],
+.campo input[type="text"].flatpickr-input {
+  color: #333;
   text-align: center;
   width: 100%;
   padding: 10px 14px;
   border: 2px solid var(--Background-color-botao);
   border-radius: 8px;
   background-color: #fff;
-  color: #333;
   font-size: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.campo input[type="date"]::-webkit-calendar-picker-indicator {
+.campo input[type="date"]::-webkit-calendar-picker-indicator,
+.campo input.flatpickr-input::-webkit-calendar-picker-indicator {
   background-color: var(--Background-color-botao);
   border-radius: 50%;
   padding: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 input {
   text-align: center;
 }
