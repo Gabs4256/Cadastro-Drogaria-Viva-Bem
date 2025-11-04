@@ -17,8 +17,8 @@
 }
 
 .foto-preview {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: 0 auto 15px;
   border: 4px solid var(--Background-color-botao);
@@ -28,10 +28,16 @@
   justify-content: center;
   font-size: 48px;
 }
+.foto-usuario {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
 .foto-preview img {
-  width: 50%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .foto-input {
@@ -76,10 +82,27 @@
 .campo input:hover {
   border-color: #00b894;
 }
-.campo input[type="date"]:invalid {
+.campo input[type="date"] {
   color: #999;
   text-align: center;
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--Background-color-botao);
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
+.campo input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: var(--Background-color-botao);
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 input {
   text-align: center;
 }
@@ -150,7 +173,6 @@ button[type="reset"]:hover {
   color: white;
 }
 
-
 footer {
   display: flex;
   justify-content: center;
@@ -199,7 +221,7 @@ footer {
     max-width: 900px;
   }
 
-  .corpo_da_pagina{
+  .corpo_da_pagina {
     align-items: start;
   }
 
@@ -211,12 +233,7 @@ footer {
     margin: 0;
     margin-bottom: 1em;
   }
-  
-  /* Foto maior no desktop */
-  .foto-preview {
-    width: 200px;
-    height: 200px;
-  }
+
 
   /* Botões ocupam as 2 primeiras colunas */
   .Botoes-acao {
@@ -229,4 +246,6 @@ footer {
   .rodape__links {
     display: none;
   }
+  
 }
+

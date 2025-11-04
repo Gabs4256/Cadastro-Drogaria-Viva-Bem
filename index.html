@@ -18,6 +18,14 @@
       href="./Favicon-logo-farmacia-viva-bem.png"
       type="image/png+xml"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css"
+    />
   </head>
   <body>
     <header class="cabeçalho">
@@ -27,9 +35,11 @@
         alt="Logo-Viva-Bem-Farmacia"
       />
       <div class="navegacao_paginas">
-        <a class="navegacao_paginas-busca" href="./index.html"> Cadastrar Usuário
+        <a class="navegacao_paginas-busca" href="./index.html">
+          Cadastrar Usuário
         </a>
-        <a class="navegacao_paginas-busca" href="./clientes.html"> Usuários Cadastrados
+        <a class="navegacao_paginas-busca" href="./clientes.html">
+          Usuários Cadastrados
         </a>
       </div>
     </header>
@@ -38,7 +48,9 @@
         <h2 class="Subtitulo-form">Cadastro de Usuário</h2>
         <div class="foto-container">
           <div class="foto-preview" id="fotoPreviewContainer">
-            <span id="fotoPlaceholder"><img src="./assets/perfil-de-usuario.png" alt=""></span>
+            <span id="fotoPlaceholder" class="foto-usuario"
+              ><img src="./assets/do-utilizador.png" alt=""
+            /></span>
             <img id="fotoPreview" style="display: none" alt="Preview" />
           </div>
           <input
@@ -69,6 +81,7 @@
             <input
               type="date"
               id="age"
+              class="flatpickr"
               name="age"
               placeholder="Data de nascimento"
               required
@@ -180,6 +193,8 @@
         </a>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
